@@ -74,6 +74,7 @@ p_injectivityAnn (InjectivityAnn a bs) = do
 p_tyFamInstEqn :: TyFamInstEqn GhcPs -> R ()
 p_tyFamInstEqn HsIB {..} = do
   let FamEqn {..} = hsib_body
+  -- feqn_fixity
   p_rdrName feqn_tycon
   space
   spaceSep (located' p_hsType) feqn_pats
